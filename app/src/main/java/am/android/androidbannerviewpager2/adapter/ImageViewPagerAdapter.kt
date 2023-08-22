@@ -12,6 +12,7 @@ import com.squareup.picasso.Picasso
 class ImageViewPagerAdapter(private val imageDrawableList: List<Int>) :
     RecyclerView.Adapter<ImageViewPagerAdapter.ViewPagerViewHolder>() {
 
+    //for infinite scroll
     private val newList: List<Int> =
         listOf(imageDrawableList.last()) + imageDrawableList + listOf(imageDrawableList.first())
 
@@ -25,7 +26,7 @@ class ImageViewPagerAdapter(private val imageDrawableList: List<Int>) :
 
     }
 
-    override fun getItemCount(): Int = newList.size
+    override fun getItemCount(): Int = imageDrawableList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerViewHolder {
 
@@ -40,7 +41,7 @@ class ImageViewPagerAdapter(private val imageDrawableList: List<Int>) :
 
     override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
 
-        holder.setData(newList[position])
+        holder.setData(imageDrawableList[position])
     }
 
 }
